@@ -20,5 +20,7 @@
             <CalendarDatePicker  Date="{x:Bind DateToDate, Mode=TwoWay}" />
             <TimePicker Time="{x:Bind DateToTime, Mode=TwoWay}" />
         </StackPanel>
+        <ToggleButton Content="Test" Checked="ToggleButton_Checked"/>
+        <Button Content="Save" Click="Button_Click"/>
     </StackPanel>
 </Page>

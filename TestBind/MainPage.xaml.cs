@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -85,6 +86,26 @@ namespace TestBind
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));
             }
+        }
+        private string flat;
+        private async void ToggleButton_Checked(object sender, RoutedEventArgs e)
+        {
+            await TestDelay();
+            flat = "has value";
+        }
+        private Task<bool> TestDelay()
+        {
+            return Task.Run(() =>
+            {
+                Task.Delay(1000);
+                return true;
+            });
+         
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine(flat);
         }
     }
 }
